@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,9 +15,9 @@
 
         <ImageView
             android:id="@+id/img_logo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/ic_cricket_ball"
             app:tint="#0D47A1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,12 +29,12 @@
             android:id="@+id/tv_app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-black"
             android:letterSpacing="0.05"
-            android:text="FIRST TOSS"
+            android:text=" THE FIRST TOSS"
             android:textColor="#0D47A1"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="Professional Cricket Tracking"
             android:textColor="#757575"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
@@ -56,30 +57,31 @@
             android:id="@+id/tv_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="sans-serif-black"
             android:text="Welcome Back"
             android:textColor="#212121"
-            android:textSize="24sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_tagline" />
 
         <EditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_input_field"
             android:drawableStart="@drawable/ic_user"
-            android:drawablePadding="16dp"
+            android:drawablePadding="12dp"
             android:elevation="4dp"
             android:fontFamily="sans-serif"
             android:hint="Email / Username"
             android:inputType="textEmailAddress"
-            android:paddingStart="16dp"
+            android:paddingStart="50dp"
             android:paddingEnd="16dp"
             android:textColor="#000000"
             android:textColorHint="#757575"
+            android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
 
         <RelativeLayout
@@ -92,20 +94,22 @@
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="50dp"
                 android:background="@drawable/bg_input_field"
                 android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="16dp"
+                android:drawablePadding="12dp"
                 android:elevation="4dp"
                 android:fontFamily="sans-serif"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:paddingStart="16dp"
+                android:paddingStart="50dp"
                 android:paddingEnd="50dp"
                 android:textColor="#000000"
-                android:textColorHint="#757575" />
+                android:textColorHint="#757575"
+                android:textSize="14sp" />
 
             <ImageView
+                android:id="@+id/iv_password_toggle"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
@@ -120,19 +124,24 @@
             android:id="@+id/cb_remember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:buttonTint="#0D47A1"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
             android:text="Remember Me"
             android:textColor="#424242"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_password" />
 
         <TextView
+            android:id="@+id/tv_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="Forgot Password?"
             android:textColor="#0D47A1"
+            android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/cb_remember"
             app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +151,7 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="56dp"
             android:background="@drawable/bg_button_3d"
             android:elevation="10dp"
             android:fontFamily="sans-serif-black"
@@ -151,15 +160,19 @@
             android:text="LOGIN"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/cb_remember" />
+            app:layout_constraintTop_toBottomOf="@id/cb_remember"
+            tools:layout_editor_absoluteX="24dp" />
 
         <LinearLayout
             android:id="@+id/layout_divider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
             android:gravity="center_vertical"
-            app:layout_constraintTop_toBottomOf="@id/btn_login">
+            app:layout_constraintBottom_toTopOf="@+id/layout_social"
+            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            app:layout_constraintVertical_bias="0.4">
 
             <View
                 android:layout_width="0dp"
@@ -173,6 +186,7 @@
                 android:layout_marginHorizontal="12dp"
                 android:text="OR"
                 android:textColor="#9E9E9E"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <View
@@ -183,16 +197,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_social"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:orientation="horizontal"
             android:weightSum="2"
-            app:layout_constraintTop_toBottomOf="@id/layout_divider">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_google"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="46dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_social_button"
@@ -200,11 +218,13 @@
                 android:text="Google"
                 android:textAllCaps="false"
                 android:textColor="#000000"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_apple"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="46dp"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_social_button_black"
@@ -212,6 +232,7 @@
                 android:text="Apple"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
 

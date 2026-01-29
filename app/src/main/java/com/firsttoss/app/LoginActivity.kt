@@ -1,97 +1,140 @@
 package com.firsttoss.app
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
-import android.view.MotionEvent
-import android.view.View
-import android.view.animation.AnimationUtils
-import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+// The line below is only needed if your package name logic is tricky,
+// but it is safe to keep.
+import com.firsttoss.app.R
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var inputEmail: EditText
-    private lateinit var inputPassword: EditText
-    private lateinit var btnLogin: Button
-    private lateinit var iconPasswordToggle: ImageView
-    private lateinit var formContainer: LinearLayout
+    // Declare Views
+    private lateinit var etEmail: EditText
+    private lateinit var etPass: EditText
+    private lateinit var btnLogin: AppCompatButton
+    private lateinit var ivPassToggle: ImageView
+    private lateinit var cbRemember: CheckBox
+    private lateinit var btnGoogle: AppCompatButton
+    private lateinit var btnApple: AppCompatButton
+
+    // Variables for logic
     private var isPasswordVisible = false
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Initialize Views
-        inputEmail = findViewById(R.id.input_email)
-        inputPassword = findViewById(R.id.input_password)
-        btnLogin = findViewById(R.id.button_login)
-        iconPasswordToggle = findViewById(R.id.icon_password_toggle)
-        formContainer = findViewById(R.id.form_container)
+        // 1. Initialize Views
+        initViews()
 
-        // Start Onboarding Animation
-        val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
-        formContainer.startAnimation(slideUp)
+        // 2. Check "Remember Me" status
+        checkRememberMe()
 
+        // 3. Setup Click Listeners
         setupListeners()
     }
 
+    private fun initViews() {
+        etEmail = findViewById(R.id.et_email)
+        etPass = findViewById(R.id.et_password)
+        btnLogin = findViewById(R.id.btn_login)
+        ivPassToggle = findViewById(R.id.iv_password_toggle)
+        cbRemember = findViewById(R.id.cb_remember)
+        btnGoogle = findViewById(R.id.btn_google)
+        btnApple = findViewById(R.id.btn_apple)
+
+        sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+    }
+
     private fun setupListeners() {
-        // Password Toggle
-        iconPasswordToggle.setOnClickListener {
-            isPasswordVisible = !isPasswordVisible
-            if (isPasswordVisible) {
-                inputPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                iconPasswordToggle.alpha = 1.0f
-            } else {
-                inputPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                iconPasswordToggle.alpha = 0.5f
-            }
-            // Move cursor to end
-            inputPassword.setSelection(inputPassword.text.length)
-        }
-
-        // Login Button Click with Animation
-        btnLogin.setOnTouchListener { view, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    val pressAnim = AnimationUtils.loadAnimation(this, R.anim.button_press)
-                    view.startAnimation(pressAnim)
-                }
-                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    val releaseAnim = AnimationUtils.loadAnimation(this, R.anim.button_release)
-                    view.startAnimation(releaseAnim)
-                }
-            }
-            false // return false to allow onClick to proceed if set
-        }
-
+        // --- Login Button Logic ---
         btnLogin.setOnClickListener {
-            validateAndLogin()
+            val email = etEmail.text.toString().trim()
+            val password = etPass.text.toString().trim()
+
+            if (validateInput(email, password)) {
+                // Checkbox Logic
+                if (cbRemember.isChecked) {
+                    saveRememberMe(true)
+                } else {
+                    saveRememberMe(false)
+                }
+
+                // Navigate
+                navigateToHome()
+            }
+        }
+
+        // --- Password Eye Toggle Logic ---
+        ivPassToggle.setOnClickListener {
+            togglePasswordVisibility()
+        }
+
+        // --- Social Buttons (Placeholders) ---
+        btnGoogle.setOnClickListener {
+            Toast.makeText(this, "Google Login Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        // btnApple.setOnClickListener { ... }
+    }
+
+    private fun validateInput(email: String, pass: String): Boolean {
+        if (email.isEmpty()) {
+            etEmail.error = "Email is required"
+            etEmail.requestFocus()
+            return false
+        }
+        if (pass.isEmpty()) {
+            etPass.error = "Password is required"
+            etPass.requestFocus()
+            return false
+        }
+        return true
+    }
+
+    private fun togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            // Hide Password
+            etPass.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            ivPassToggle.setImageResource(R.drawable.ic_eye)
+            ivPassToggle.alpha = 0.5f
+        } else {
+            // Show Password
+            etPass.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            ivPassToggle.alpha = 1.0f
+        }
+        // Move cursor to the end
+        etPass.setSelection(etPass.text.length)
+        isPasswordVisible = !isPasswordVisible
+    }
+
+    private fun checkRememberMe() {
+        val isRemembered = sharedPreferences.getBoolean("REMEMBER_ME", false)
+        if (isRemembered) {
+            cbRemember.isChecked = true
+            Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun validateAndLogin() {
-        val email = inputEmail.text.toString().trim()
-        val password = inputPassword.text.toString().trim()
+    private fun saveRememberMe(isChecked: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("REMEMBER_ME", isChecked)
+        editor.apply()
+    }
 
-        var isValid = true
-
-        if (email.isEmpty()) {
-            inputEmail.error = "Email is required"
-            isValid = false
-        }
-
-        if (password.isEmpty()) {
-            inputPassword.error = "Password is required"
-            isValid = false
-        }
-
-        if (isValid) {
-            // Proceed with login logic (API call, etc.)
-            // For now, just a placeholder action
-        }
+    private fun navigateToHome() {
+        Toast.makeText(this, "Login Successful! Navigating to Home...", Toast.LENGTH_LONG).show()
+        // val intent = Intent(this, HomeActivity::class.java)
+        // startActivity(intent)
+        // finish()
     }
 }

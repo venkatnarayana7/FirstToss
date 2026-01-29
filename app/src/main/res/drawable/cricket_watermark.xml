@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap
+            android:src="@drawable/ic_cricket_ball"
+            android:gravity="center"
+            android:tint="@color/black_05_alpha"
+            android:alpha="0.05"/> <!-- Opacity handled via tint/alpha if API supports, or use alpha in layout -->
+    </item>
+</layer-list>

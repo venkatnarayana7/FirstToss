@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.FirstToss" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/gray_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/gray_darker</item>
+        <item name="colorSecondaryVariant">@color/gray_darkest</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.FirstToss.Fullscreen" parent="Theme.FirstToss">
+         <item name="android:windowFullscreen">false</item>
+         <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+    <!-- Custom Text Styles for specific fonts would go here if using Downloadable Fonts programmatically or via XML -->
+    <style name="TextAppearance.FirstToss.Hero" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_display_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+</resources>

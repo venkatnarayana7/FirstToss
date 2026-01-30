@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         ivPassToggle = findViewById(R.id.iv_password_toggle)
         cbRemember = findViewById(R.id.cb_remember)
         btnGoogle = findViewById(R.id.btn_google)
-        btnApple = findViewById(R.id.btn_apple)
+
 
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
     }

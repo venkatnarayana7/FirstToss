@@ -70,135 +70,13 @@
             android:padding="16dp">
 
             <!-- Section 2: Section A: Professional Live Scores -->
-            <HorizontalScrollView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_live_matches"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <!-- Live Match Card 1 -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="280dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="6dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:id="@+id/tv_match_live_badge"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/bg_live_badge"
-                                android:fontFamily="sans-serif-black"
-                                android:paddingHorizontal="8dp"
-                                android:paddingVertical="2dp"
-                                android:text="LIVE"
-                                android:textColor="@color/white"
-                                android:textSize="10sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-medium"
-                                android:text="T20 International"
-                                android:textColor="@color/gray_slate"
-                                android:textSize="12sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/tv_match_live_badge"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/tv_match_live_badge" />
-
-                            <TextView
-                                android:id="@+id/tv_team1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
-                                android:fontFamily="sans-serif-black"
-                                android:text="IND"
-                                android:textColor="@color/black_matte"
-                                android:textSize="18sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_match_live_badge" />
-
-                            <TextView
-                                android:id="@+id/tv_team1_score"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-black"
-                                android:text="210/3"
-                                android:textColor="@color/black_matte"
-                                android:textSize="18sp"
-                                app:layout_constraintBaseline_toBaselineOf="@+id/tv_team1"
-                                app:layout_constraintEnd_toEndOf="parent" />
-
-                            <TextView
-                                android:id="@+id/tv_team1_overs"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="(18.4 ov)"
-                                android:textColor="@color/gray_slate"
-                                android:textSize="12sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_team1_score" />
-
-                            <TextView
-                                android:id="@+id/tv_team2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:fontFamily="sans-serif-black"
-                                android:text="AUS"
-                                android:textColor="@color/gray_slate"
-                                android:textSize="18sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_team1_overs" />
-
-                            <TextView
-                                android:id="@+id/tv_match_status"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:text="IND need 15 runs in 8 balls"
-                                android:textColor="@color/industry_blue"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_team2" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <!-- Dummy Card 2 for scrolling effect -->
-                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="280dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginBottom="8dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="6dp">
-                         <TextView 
-                             android:layout_width="match_parent"
-                             android:layout_height="match_parent"
-                             android:gravity="center"
-                             android:text="More Matches"
-                             android:textColor="@color/gray_slate"/>
-                     </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
-            </HorizontalScrollView>
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_live_match" />
 
             <!-- Section 3: Section B: Local Match Operations -->
             <!-- Start New Match Card -->
@@ -403,48 +281,14 @@
                 android:textColor="@color/black_matte"
                 android:textSize="18sp" />
 
-            <!-- News Card 1 -->
-            <com.google.android.material.card.MaterialCardView
+            <!-- News Feed RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news_feed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="60dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_cricket_ball" 
-                        app:tint="@color/gray_slate"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="India wins series against Australia after thrilling finish"
-                            android:textColor="@color/black_matte"
-                            android:textSize="14sp"
-                            android:maxLines="2"
-                            android:ellipsize="end"/>
-                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="2 hours ago"
-                            android:textColor="@color/gray_slate"
-                            android:textSize="12sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_news" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

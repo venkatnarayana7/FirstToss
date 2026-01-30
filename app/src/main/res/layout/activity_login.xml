@@ -147,21 +147,46 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/cb_remember" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login"
+        <LinearLayout
+            android:id="@+id/layout_auth_buttons"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:background="@drawable/bg_button_3d"
-            android:elevation="10dp"
-            android:fontFamily="sans-serif-black"
-            android:letterSpacing="0.05"
-            android:stateListAnimator="@null"
-            android:text="LOGIN"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/cb_remember"
-            tools:layout_editor_absoluteX="24dp" />
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toBottomOf="@id/cb_remember">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_button_3d"
+                android:elevation="10dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:stateListAnimator="@null"
+                android:text="LOGIN"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_signup"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_glass_button"
+                android:elevation="10dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:stateListAnimator="@null"
+                android:text="SIGN UP"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layout_divider"
@@ -171,7 +196,7 @@
             android:layout_marginBottom="24dp"
             android:gravity="center_vertical"
             app:layout_constraintBottom_toTopOf="@+id/layout_social"
-            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            app:layout_constraintTop_toBottomOf="@id/layout_auth_buttons"
             app:layout_constraintVertical_bias="0.4">
 
             <View
@@ -201,39 +226,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_google"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_social_button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="24dp"
+                android:background="@drawable/bg_glass_button"
                 android:elevation="6dp"
-                android:text="Google"
+                android:fontFamily="sans-serif-black"
+                android:text="Continue with Google"
                 android:textAllCaps="false"
                 android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_apple"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_social_button_black"
-                android:elevation="6dp"
-                android:text="Apple"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,6 @@
 
     <color name="black_matte">#212121</color> <color name="gray_slate">#757575</color>
     <color name="black_05_alpha">#0D000000</color>
+    <color name="off_white">#F8F9FA</color>
+    <color name="live_red">#D50000</color>
 </resources>

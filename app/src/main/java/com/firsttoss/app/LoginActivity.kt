@@ -98,7 +98,14 @@ class LoginActivity : AppCompatActivity() {
             etPass.requestFocus()
             return false
         }
-        return true
+
+        // Hardcoded credentials for testing
+        if (email == "admin" && pass == "123456") {
+            return true
+        } else {
+            Toast.makeText(this, "Invalid credentials. Use admin/123456", Toast.LENGTH_SHORT).show()
+            return false
+        }
     }
 
     private fun togglePasswordVisibility() {
@@ -121,7 +128,8 @@ class LoginActivity : AppCompatActivity() {
         val isRemembered = sharedPreferences.getBoolean("REMEMBER_ME", false)
         if (isRemembered) {
             cbRemember.isChecked = true
-            Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show()
+            etEmail.setText("admin") // Pre-fill for convenience
+            // Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -132,9 +140,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-        Toast.makeText(this, "Login Successful! Navigating to Home...", Toast.LENGTH_LONG).show()
-        // val intent = Intent(this, HomeActivity::class.java)
-        // startActivity(intent)
-        // finish()
+        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

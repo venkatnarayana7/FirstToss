@@ -51,7 +51,6 @@ class LoginActivity : AppCompatActivity() {
         cbRemember = findViewById(R.id.cb_remember)
         btnGoogle = findViewById(R.id.btn_google)
 
-
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
     }
 

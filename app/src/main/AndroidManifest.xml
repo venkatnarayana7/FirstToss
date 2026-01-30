@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,22 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstToss"
         tools:targetApi="31">
-
         <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.FirstToss.Fullscreen">
+            android:name=".LauncherActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".auth.SignupStep1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignupStep2OtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignupStep3PasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignupStep4ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false"
-            android:theme="@style/Theme.FirstToss" />
-
+            android:exported="false" />
     </application>
 
 </manifest>

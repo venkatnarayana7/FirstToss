@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "515233262652",
+    "project_id": "the-first-toss",
+    "storage_bucket": "the-first-toss.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515233262652:android:8b15c5627c162a5689a739",
+        "android_client_info": {
+          "package_name": "com.firsttoss.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-HAqeExBUJxj-ImiSQZBU1cD8dD1ZWOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

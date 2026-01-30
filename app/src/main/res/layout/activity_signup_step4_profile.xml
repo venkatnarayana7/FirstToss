@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Your Profile"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black_matte"
+        android:layout_marginBottom="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_input_field"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_finish"
+        android:text="FINISH"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_button_3d"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"/>
+</LinearLayout>

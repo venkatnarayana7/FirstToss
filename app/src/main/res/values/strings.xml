@@ -3,20 +3,20 @@
     <string name="app_name">FIRST TOSS</string>
     <string name="tagline">Professional Cricket Tracking</string>
     <string name="welcome_back">Welcome Back</string>
-    
+
     <string name="label_email">Email / Username</string>
     <string name="label_password">Password</string>
     <string name="hint_email">Enter your email</string>
     <string name="hint_password">••••••••</string>
-    
+
     <string name="remember_me">Remember Me</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="login_button">LOGIN</string>
-    
+
     <string name="or_divider">OR</string>
     <string name="continue_google">Continue with Google</string>
     <string name="continue_apple">Continue with Apple</string>
-    
+
     <string name="no_account">Don\u2018t have an account?</string>
     <string name="sign_up">Sign Up</string>
 </resources>

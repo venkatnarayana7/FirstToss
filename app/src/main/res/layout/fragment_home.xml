@@ -205,8 +205,8 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_start_match"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_marginTop="24dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="16dp"
                 android:clickable="true"
                 android:focusable="true"
                 app:cardCornerRadius="16dp"
@@ -219,8 +219,8 @@
 
                     <ImageView
                         android:id="@+id/iv_play"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:layout_marginStart="24dp"
                         android:src="@drawable/ic_play_arrow"
                         app:tint="@color/white"
@@ -233,24 +233,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:fontFamily="sans-serif-black"
-                        android:text="START NEW\nMATCH"
+                        android:text="START NEW MATCH"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/iv_play"
                         app:layout_constraintTop_toTopOf="parent" />
                         
                     <!-- Decorative element -->
                      <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/ic_cricket_ball"
                         android:alpha="0.2"
                         app:tint="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginEnd="-16dp"/>
+                        android:layout_marginEnd="-12dp"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
